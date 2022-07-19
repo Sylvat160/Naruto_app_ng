@@ -1,0 +1,29 @@
+<div class='container-fluid'>
+    <div class="row">
+      <app-search-perso></app-search-perso>
+      <div *ngFor='let perso of persoList' class="col s6 m4">
+        <div class="card horizontal" appBorderCard  (click)="goToPerso(perso)">
+          <div class="card-image">
+            <img src={{perso.picture}} width="100%">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content"> 
+              <p>{{perso.name}}</p>
+              <p>{{perso.clan}}</p>
+              <p><small>{{perso.technique}}</small></p>
+              <!-- <p><small>{{perso.created | date:"dd/MM/yyy" | uppercase}}</small></p> -->
+              <!-- <span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}"> {{type}} </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a
+    class="btn-floating btn-large waves-effect waves-light red z-depth-3" 
+    style="position:fixed; bottom:25px; right:25px;"
+    routerLink="/perso/add"
+  >
+      ➕
+  </a>

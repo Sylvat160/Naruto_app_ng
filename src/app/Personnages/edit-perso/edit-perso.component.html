@@ -1,0 +1,6 @@
+<h2 class="center"> Editer {{ personnage?.name }}</h2>
+<p class="center" *ngIf="personnage">
+    <img [src]="personnage.picture" alt="">
+</p>
+
+<app-perso-form *ngIf="personnage" [personnage]="personnage"></app-perso-form>

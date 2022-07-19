@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div *ngIf="personnage" class="row" style="width:230%; position:relative; left:-350px;">
+        <div class="col s12 m8 offset-m2">
+        <h2 class="header center">{{ personnage.name }}</h2>
+        <div class="card horizontal hoverable">
+          <div class="card-image">
+            <img [src]="personnage.picture">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <table class="bordered striped">
+                <tbody>
+                  <tr>
+                    <td>Nom</td>
+                    <td><strong>{{ personnage.name }}</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Clan</td>
+                    <td><strong>{{ personnage.clan }}</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Technique</td>
+                    <td><strong>{{ personnage.technique }}</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Chakra</td>
+                    <td>
+                      <span *ngFor="let chakra of personnage.chakra" class="{{ chakra | persoChakraColor }}" >{{ chakra }}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Date de création</td>
+                    <td><em>{{ personnage.created | date:"dd/MM/yyyy" }}</em></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-action">
+              <a (click)="goToList()" >Retour</a>
+              <a (click)="goToEditPerso(personnage)"> Editer</a>
+              <a (click)="deletePersonnage(personnage)"> Supprimer</a> 
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        <h4 *ngIf='!personnage' class="center">
+          <app-loader></app-loader>
+        </h4>
+</div>
